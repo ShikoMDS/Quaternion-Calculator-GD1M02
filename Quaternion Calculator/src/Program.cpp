@@ -108,33 +108,42 @@ void Program::readQuaternionFromFile(std::ifstream& File, Quaternion& Quat) cons
         Iss.clear();
     }
 
-    // Loop to read 'i', 'j', 'k' parts
-    for (const char Part : {'i', 'j', 'k'})
-    {
-        if (Iss >> Dummy)
-        {
-            double& CurrentPart = (Part == 'i') ? Quat.X : (Part == 'j') ? Quat.Y : Quat.Z;
+	std::string Value;
 
-            if (Dummy == '+')
-            {
-                if (!(Iss >> CurrentPart && Iss >> Dummy && Dummy == Part))
-                {
-                    CurrentPart = 1; // If the part is alone, set to 1
-                }
-            }
-            else if (Dummy == '-')
-            {
-                if (!(Iss >> CurrentPart && Iss >> Dummy && Dummy == Part))
-                {
-                    CurrentPart = -1; // If the part is alone, set to -1
-                }
-                else
-                {
-                    CurrentPart = -CurrentPart;
-                }
-            }
-        }
-    }
+	// Loop to read 'i', 'j', 'k' parts
+	for (char Part : {'i', 'j', 'k'})
+	{
+		if (Iss >> Dummy)
+		{
+			double& CurrentPart = (Part == 'i') ? Quat.X : (Part == 'j') ? Quat.Y : Quat.Z;
+
+			Iss >> Value;
+			std::string PartValue(1, Part);
+
+			if (Dummy == '+')
+			{
+				if (Value != PartValue)
+				{
+					CurrentPart = std::stod(Value);
+				}
+				else
+				{
+					CurrentPart = 1.0;
+				}
+			}
+			else if (Dummy == '-')
+			{
+				if (Value != PartValue)
+				{
+					CurrentPart = -std::stod(Value);
+				}
+				else
+				{
+					CurrentPart = -1.0;
+				}
+			}
+		}
+	}
 }
 
 
