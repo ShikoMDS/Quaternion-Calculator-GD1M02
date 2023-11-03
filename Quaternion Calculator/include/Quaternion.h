@@ -1,3 +1,15 @@
+/***********************************************************************
+Bachelor of Software Engineering
+Media Design School
+Auckland
+New Zealand
+(c) [Year] Media Design School
+File Name : Quaternion.h
+Description : Calculation declarations
+Author : Chris, Shikomisen (Ayoub)
+Mail : christopher.houdt@mds.ac.nz, ayoub.ahmad@mds.ac.nz
+**************************************************************************/
+
 #pragma once
 
 #include <iostream>
@@ -11,19 +23,7 @@ public:
 
 	// Destructor
 	~Quaternion();
-
-	//// Getters
-	//[[nodiscard]] double getW() const;
-	//[[nodiscard]] double getX() const;
-	//[[nodiscard]] double getY() const;
-	//[[nodiscard]] double getZ() const;
-	//
-	//// Setters
-	//void setW(double W);
-	//void setX(double X);
-	//void setY(double Y);
-	//void setZ(double Z);
-
+	
 	// Quaternion operations
 	Quaternion operator+(const Quaternion& Rhs) const;
 	Quaternion operator-(const Quaternion& Rhs) const;

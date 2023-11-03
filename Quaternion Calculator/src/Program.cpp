@@ -1,3 +1,15 @@
+/***********************************************************************
+Bachelor of Software Engineering
+Media Design School
+Auckland
+New Zealand
+(c) [Year] Media Design School
+File Name : Program.cpp
+Description : Implementations for calculator instance
+Author : Chris, Shikomisen (Ayoub)
+Mail : christopher.houdt@mds.ac.nz, ayoub.ahmad@mds.ac.nz
+**************************************************************************/
+
 #include "Program.h"
 
 Program::Program() = default;
@@ -16,8 +28,7 @@ void Program::loadQuaternionsAndScalar(const std::string& Filename)
 	std::ifstream File(Filename);
 	if (!File.is_open())
 	{
-		std::cerr << "Error opening file: " << Filename << std::endl;
-		exit(EXIT_FAILURE);
+		throw std::runtime_error("Error opening file: " + Filename);
 	}
 
 	// Read quaternion a (line 1)
@@ -50,22 +61,11 @@ void Program::displayQuaternions() const
 
 void Program::performOperations() const
 {
-	// Perform calculations and display results
-	// 1) a + b
-	// 2) a – b
-	// 3) b – a
-	// 4) ab
-	// 5) ba
-	// 6) a.b(Dot product of a and b)
-	// 7) a *
-	// 8) a - 1
-	// 9) ta
-
 	Quaternion Result;
 
 	// Perform quaternion operations
 	Result = QuaternionA + QuaternionB;
-	std::cout << "a + b: " << Result << '\n';
+	std::cout << "\na + b: " << Result << '\n';
 
 	Result = QuaternionA - QuaternionB;
 	std::cout << "a - b: " << Result << '\n';
@@ -111,7 +111,7 @@ void Program::readQuaternionFromFile(std::ifstream& File, Quaternion& Quat) cons
 	std::string Value;
 
 	// Loop to read 'i', 'j', 'k' parts
-	for (char Part : {'i', 'j', 'k'})
+	for (const char Part : {'i', 'j', 'k'})
 	{
 		if (Iss >> Dummy)
 		{
@@ -146,10 +146,8 @@ void Program::readQuaternionFromFile(std::ifstream& File, Quaternion& Quat) cons
 	}
 }
 
-
 void Program::skipEmptyLine(std::ifstream& File) const
 {
 	std::string Line;
 	std::getline(File, Line);
-	// Add additional checks if needed
 }

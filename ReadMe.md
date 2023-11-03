@@ -46,7 +46,7 @@ The output of the following operations have been implemented.
   
 ## Installation  
   
-Download and extract from the .zip file.  
+Download and extract from the .zip file. No .exe file has been provided, Quaternion.txt is read from the project directory.  
 This calculator can be run by opening the "Quaternion Calculator.sln" file and built in Debug or Release mode with x64.  
   
   

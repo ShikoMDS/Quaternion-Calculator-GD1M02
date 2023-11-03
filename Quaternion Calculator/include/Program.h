@@ -1,10 +1,22 @@
+/***********************************************************************
+Bachelor of Software Engineering
+Media Design School
+Auckland
+New Zealand
+(c) [Year] Media Design School
+File Name : Program.h
+Description : Declarations for calculator instance
+Author : Chris, Shikomisen (Ayoub)
+Mail : christopher.houdt@mds.ac.nz, ayoub.ahmad@mds.ac.nz
+**************************************************************************/
+
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
 #include "Quaternion.h"
+
+#include <fstream>
+#include <string>
+#include <sstream>
 
 class Program
 {
@@ -13,6 +25,7 @@ public:
 	~Program();
 
 	void run();
+
 	void loadQuaternionsAndScalar(const std::string& Filename);
 	void displayQuaternions() const;
 	void performOperations() const;

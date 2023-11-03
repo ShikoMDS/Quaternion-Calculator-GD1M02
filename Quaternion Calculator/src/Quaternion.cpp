@@ -1,3 +1,15 @@
+/***********************************************************************
+Bachelor of Software Engineering
+Media Design School
+Auckland
+New Zealand
+(c) [Year] Media Design School
+File Name : Quaternion.cpp
+Description : Implementations for quaternion calculator calculations
+Author : Chris, Shikomisen (Ayoub)
+Mail : christopher.houdt@mds.ac.nz, ayoub.ahmad@mds.ac.nz
+**************************************************************************/
+
 #include "Quaternion.h"
 
 // Constructors
@@ -11,24 +23,6 @@ Quaternion::Quaternion(const double W, const double X, const double Y, const dou
 
 // Destructor
 Quaternion::~Quaternion() = default;
-
-//// Getters
-//double Quaternion::getW() const { return W; }
-//
-//double Quaternion::getX() const { return X; }
-//
-//double Quaternion::getY() const { return Y; }
-//
-//double Quaternion::getZ() const { return Z; }
-//
-//// Setters
-//void Quaternion::setW(const double W) { this->W = W; }
-//
-//void Quaternion::setX(const double X) { this->X = X; }
-//
-//void Quaternion::setY(const double Y) { this->Y = Y; }
-//
-//void Quaternion::setZ(const double Z) { this->Z = Z; }
 
 // Quaternion operations
 Quaternion Quaternion::operator+(const Quaternion& Rhs) const
